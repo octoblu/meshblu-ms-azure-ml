@@ -1,0 +1,43 @@
+sudo: false
+language: node_js
+cache:
+  bundler: true
+  directories:
+  - node_modules
+notifications:
+  flowdock: e7454f5285e7b9ab67009802d5560490
+node_js:
+- '0.10'
+before_deploy:
+- mkdir -p deploy/meshblu-ms-azure-ml/latest
+- mkdir -p deploy/meshblu-ms-azure-ml/$TRAVIS_TAG
+- node_modules/.bin/browserify -s Connector -t coffeeify connector.coffee > deploy/meshblu-ms-azure-ml/latest/meshblu-ms-azure-ml.js
+- gzip deploy/meshblu-ms-azure-ml/latest/meshblu-ms-azure-ml.js
+- mv deploy/meshblu-ms-azure-ml/latest/meshblu-ms-azure-ml.js.gz deploy/meshblu-ms-azure-ml/latest/meshblu-ms-azure-ml.js
+- cp deploy/meshblu-ms-azure-ml/latest/meshblu-ms-azure-ml.js deploy/meshblu-ms-azure-ml/$TRAVIS_TAG/meshblu-ms-azure-ml.js
+deploy:
+  matrix:
+  - provider: npm
+    skip_cleanup: true
+    clean_up: false
+    email: serveradmin@octoblu.com
+    api_key:
+      secure: ItQFt+eqduvqEOWI4EbT7TLLsBbbcrmIFOEb1xwNc65NNnEfJpJWDrLUJMlmcrdkJdGDuPHNV+JuEOMlMLMZuN2gRGRgf94ZTvBK4j2zXbDEJapZ+uG76mYN/F7oPIyIiljDphJ+q6PVCzYubhejwr7vHo5vLt3wzmaZf9swM80=
+    on:
+      tags: true
+      all_branches: true
+  - provider: s3
+    access_key_id: AKIAJH2D5IPIRHYJT5IA
+    secret_access_key:
+      secure: "Clwh2YDu96QpghyIEcdnyT4d/eplMqoeC4fdbidYoHvQg01wImcm0Mp+b1tVjVQ8s5aKZaosyjtwygc/B0+fi7pLbXUKLw184JYZpN1XQBNabNfs+WW08IxOgQNwyzINmW+9dhh1IKerBMAl8h9OvPn1tKM/4Pxlwhikg12uG8OZVv/eyIrPziIEYy6zgJFVOqQSsRZ0ZnyKcnpakUtuABPzRioQ+lyxm//J5Uqr55BRLtxiMfWWWqRLwjgqrdr2KoVsLCR3WifNp5uTmQUR4GPF+3FvtL/+xhhaxSbVKQg+B74yjqvoSNA03g5ErOCElb1aNFpDC1KjUI8FvNETvexjV/n13rZZrlA5v8nM41Z6SagOOIt0z+ElM8gh+d1ExutH8C3o0vHcL1VIr5nYDUfakPSdV2enDSJNy2lnwgCrLlQRdgWSBcvS468LF/UcHe3G4+eTjLfMaj0DG3oQsvrKopnO2WoGlWYYu4IkA2Rw+BtqmXNO8eqUjp9MUYu0A5VwU46TWL1e+X86nw/vLWLAHKP8nVSrdI3d14CdRUR8l6FusWKxtUGg0yE5ksskAMrWa4l8C9zHD1Cpjkb6seamdFX9FTwZCFoaBWYe0DLVMc110xIN5zArPuPD+LcgQlLEy+yAT6F2TydP5Y2LQPT85MULNN2a0RUS2cv1V+A="
+    bucket: octoblu-cdn
+    region: us-west-2
+    skip_cleanup: true
+    detect_encoding: true
+    local-dir: deploy
+    upload-dir: js
+    on:
+      tags: true
+      all_branches: true
+  api_key:
+    secure: rpZTN8IxqVXnoXInE7ZTN+DMD4wPZmanwiHLYpiu1wZ1HA0NuKVe34qvsCmz9n/lXX2fQr1pAGcVYMyXAYrkUjycCDnatziIb2wQx8utiqEHLM548Yin+MU+6BNbQbPyQddW9DqLQnAYK5Gf4VXZ1Z0kkib4OSmD5ByzPLY7nrlaBsEaSedWYqFPrtaQj22xzaLfU4zWY5vemrIWdUdmNXe6Oa3pDwfL7vjky+2i53Gn+C8n6rTwHEcUQZtKnRFBdTohtVZ04wgh7w6tqTqRbHyML8SHNltjX7YxUWVUPfw7+MZiIz7yo7C/5mNHNbl9pcg2x7Ziy+3iJg1thoz73ajM2cNCpEFl9ZogwivQwhP3RjuxgR0WFTMV1afEQDYX++14QPEW3TDTJFKNAHK181XamwGCi8mocGisuYi9J8VaXTDM3pBgGe8Kd6cSdEgrTit00+AFbERbzWn91o/ApQ2ky5XYzgO3uIFR9pK4lnwb01se/5T988qX5UbywvOqa9wlyJuZatfo9Jdzr046jRMMwjXpuw9BvfzepNTePEEwhGr56yaGFzPgCRQvmwn+qRdMPqW5XBcfn/YZDoI/Ar04ns4Rq4/oCuzLnM9B6ytCbJm9SrYFG+8elZCgRavSWCXnWPqY0kKV9VxgPqmi4Ptjfm9lUZPwQyDOBrtJqvI=
