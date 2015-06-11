@@ -9,6 +9,7 @@ notifications:
 node_js:
 - '0.10'
 before_deploy:
+- npm install browserify coffeeify
 - mkdir -p deploy/meshblu-ms-azure-ml/latest
 - mkdir -p deploy/meshblu-ms-azure-ml/$TRAVIS_TAG
 - node_modules/.bin/browserify -s Connector -t coffeeify connector.coffee > deploy/meshblu-ms-azure-ml/latest/meshblu-ms-azure-ml.js
