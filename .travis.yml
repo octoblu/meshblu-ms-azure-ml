@@ -12,7 +12,7 @@ before_deploy:
 - npm install browserify coffeeify
 - mkdir -p deploy/meshblu-ms-azure-ml/latest
 - mkdir -p deploy/meshblu-ms-azure-ml/$TRAVIS_TAG
-- node_modules/.bin/browserify -s Connector -t coffeeify connector.coffee > deploy/meshblu-ms-azure-ml/latest/meshblu-ms-azure-ml.js
+- node_modules/.bin/browserify -s Connector -t coffeeify connector.js > deploy/meshblu-ms-azure-ml/latest/meshblu-ms-azure-ml.js
 - gzip deploy/meshblu-ms-azure-ml/latest/meshblu-ms-azure-ml.js
 - mv deploy/meshblu-ms-azure-ml/latest/meshblu-ms-azure-ml.js.gz deploy/meshblu-ms-azure-ml/latest/meshblu-ms-azure-ml.js
 - cp deploy/meshblu-ms-azure-ml/latest/meshblu-ms-azure-ml.js deploy/meshblu-ms-azure-ml/$TRAVIS_TAG/meshblu-ms-azure-ml.js
