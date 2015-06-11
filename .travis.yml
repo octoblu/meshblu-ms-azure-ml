@@ -16,7 +16,6 @@ before_deploy:
 - mv deploy/meshblu-ms-azure-ml/latest/meshblu-ms-azure-ml.js.gz deploy/meshblu-ms-azure-ml/latest/meshblu-ms-azure-ml.js
 - cp deploy/meshblu-ms-azure-ml/latest/meshblu-ms-azure-ml.js deploy/meshblu-ms-azure-ml/$TRAVIS_TAG/meshblu-ms-azure-ml.js
 deploy:
-  matrix:
   - provider: npm
     skip_cleanup: true
     clean_up: false
@@ -39,5 +38,3 @@ deploy:
     on:
       tags: true
       all_branches: true
-  api_key:
-    secure: rpZTN8IxqVXnoXInE7ZTN+DMD4wPZmanwiHLYpiu1wZ1HA0NuKVe34qvsCmz9n/lXX2fQr1pAGcVYMyXAYrkUjycCDnatziIb2wQx8utiqEHLM548Yin+MU+6BNbQbPyQddW9DqLQnAYK5Gf4VXZ1Z0kkib4OSmD5ByzPLY7nrlaBsEaSedWYqFPrtaQj22xzaLfU4zWY5vemrIWdUdmNXe6Oa3pDwfL7vjky+2i53Gn+C8n6rTwHEcUQZtKnRFBdTohtVZ04wgh7w6tqTqRbHyML8SHNltjX7YxUWVUPfw7+MZiIz7yo7C/5mNHNbl9pcg2x7Ziy+3iJg1thoz73ajM2cNCpEFl9ZogwivQwhP3RjuxgR0WFTMV1afEQDYX++14QPEW3TDTJFKNAHK181XamwGCi8mocGisuYi9J8VaXTDM3pBgGe8Kd6cSdEgrTit00+AFbERbzWn91o/ApQ2ky5XYzgO3uIFR9pK4lnwb01se/5T988qX5UbywvOqa9wlyJuZatfo9Jdzr046jRMMwjXpuw9BvfzepNTePEEwhGr56yaGFzPgCRQvmwn+qRdMPqW5XBcfn/YZDoI/Ar04ns4Rq4/oCuzLnM9B6ytCbJm9SrYFG+8elZCgRavSWCXnWPqY0kKV9VxgPqmi4Ptjfm9lUZPwQyDOBrtJqvI=
