@@ -1,0 +1,27 @@
+{
+  "name": "meshblu-microsoft-ml",
+  "repository": "octoblu/meshblu-microsoft-ml",
+  "version": "1.0.0",
+  "license" : "MIT", 
+  "description": "A simple integration to connect to Microsoft Azure ML studio experiment web service",
+  "main": "connector.js",
+  "scripts": {
+    "preinstall": "node -e \"try{require('./skip-install.js')}catch(e){}\"",
+    "start": "node command.js",
+    "test": "exit 0"
+  },
+  "dependencies": {
+    "debug": "^2.1.0",
+    "meshblu": "^1.22.0",
+    "request": "^2.57.0"
+  },
+  "bundledDependencies": [
+    "request",
+    "tar",
+    "fstream"
+  ],
+  "keywords": [
+    "meshblu-connector",
+    "gateblu"
+  ]
+}
