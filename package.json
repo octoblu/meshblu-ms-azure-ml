@@ -1,7 +1,7 @@
 {
   "name": "meshblu-ms-azure-ml",
   "repository": "octoblu/meshblu-ms-azure-ml",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license" : "MIT",
   "description": "A simple integration to connect to Microsoft Azure ML studio experiment web service",
   "main": "connector.js",
