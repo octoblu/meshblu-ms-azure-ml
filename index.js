@@ -43,7 +43,7 @@ util.inherits(Plugin, EventEmitter);
 Plugin.prototype.onMessage = function(message){
   var self = this;
   var payload = message.payload;
-  if(message.payload){
+  if(payload && payload.Inputs){
     request({
       method : 'POST',
       uri : self.options.endpointUrl,
@@ -53,10 +53,10 @@ Plugin.prototype.onMessage = function(message){
       },
       header: {
         "Content-Type": "application/json",
-        "Content-Length": JSON.stringify(message.payload.Inputs).length,
+        "Content-Length": JSON.stringify(payload.Inputs).length,
         "Accept": "application/json"
       },
-      body: message.payload.Inputs
+      body: payload.Inputs
     }, function(error, response, body){
       debug('After web service');
       debug(response);
