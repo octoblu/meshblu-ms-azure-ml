@@ -22,7 +22,7 @@ deploy:
     clean_up: false
     email: serveradmin@octoblu.com
     api_key:
-      secure: ItQFt+eqduvqEOWI4EbT7TLLsBbbcrmIFOEb1xwNc65NNnEfJpJWDrLUJMlmcrdkJdGDuPHNV+JuEOMlMLMZuN2gRGRgf94ZTvBK4j2zXbDEJapZ+uG76mYN/F7oPIyIiljDphJ+q6PVCzYubhejwr7vHo5vLt3wzmaZf9swM80=
+      secure: "lVZaqGtFIfmYlLpmwRcS6dOYlS/s5dW1RVOV9jGD66wrG2kwAhd2C2btO9sm8MOceMYhOLUQ3onoBGTBUnTT2wbnWcR5SLsKzv72c9FCyB0+lPKMZC9SLUXL/7BBUk7BmiZNQtTu8D6lMDT/DyllcuZilfLqZh7agTqsEMra/9W3AkQz60BxMxV7NVHdstM0oWnjqbIfI8GKq/1VGRk3sDTcxz3imHQarPPEEylSQwEV/8XU8oREp08k71eeBtbmBk+fCBVA7bhwSG/rUg9nyVsEYZN0SERBCq+5D0CLdj+0ExCw32s11zVWG/whBf2M3pUEKiWgqC5dBWbGTytUrdFYI8H9pIIZakRYBnlDpPmPPHK8teP9kwfVV72QnKqdAvoGH5v0MSI4NyMwpw/1mh+mO4pchVvZIlgoXrxhcyErjQp+/8xyq/tqqdpj3sA7P1IZEh2igifXrQgx4HYClPpLpScwXp75zlNUdhNgFOHL+PmFlb+oY5zoeUK+ZYzXUF6vSK1wpHRJFNMQnlLmBTrSYZ0TtVnBr1LlyjQ3Ot/KgTPx6pa/rVOJaAE3/zrdJrUvduhiRNeQ5f6CV90O1r4M7cOa8kV1+Z4339DSLgj/6GdvyuvYftGmqxV3PRdK6PjgdqLZjhfJlskHYnmUWUz7o8OB+pY5IXNE9iSGl+0="
     on:
       tags: true
       all_branches: true
