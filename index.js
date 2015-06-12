@@ -43,8 +43,6 @@ util.inherits(Plugin, EventEmitter);
 Plugin.prototype.onMessage = function(message){
   var self = this;
   var payload = message.payload;
-  console.log(message);
-  console.log('self', self.options);
   if(message.payload){
     request({
       method : 'POST',
