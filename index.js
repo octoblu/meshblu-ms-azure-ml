@@ -65,7 +65,7 @@ Plugin.prototype.onMessage = function(message){
       if(error){
          self.emit('error', error);
       }
-      self.emit('data', body);
+      self.emit('message', {devices: ["*"], payload: body});
     });
   }
 };
